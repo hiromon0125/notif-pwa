@@ -37,7 +37,7 @@ export function createRedisInstance(config = getRedisConfiguration()) {
 			console.warn('[Redis] Error connecting', error);
 		});
 		return redis;
-	} catch (e) {
+	} catch {
 		throw new Error(`[Redis] Could not create a Redis instance`);
 	}
 }
