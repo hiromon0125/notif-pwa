@@ -83,6 +83,7 @@ function PushNotificationManager() {
 				<input
 					type="text"
 					id="name"
+					className=" text-black"
 					onChange={(e) => setName(e.target.value)}
 				/>
 			</div>
