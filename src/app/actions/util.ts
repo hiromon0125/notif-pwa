@@ -46,8 +46,6 @@ export async function sendNotification(
 	if (!subscription) {
 		return { success: false, error: 'Subscription not found' };
 	}
-	console.log(subscription.endpoint);
-	console.log(typeof subscription);
 	try {
 		await webpush.sendNotification(
 			subscription,
