@@ -34,7 +34,11 @@ const websubscriptionSchema = z.object({
 	}),
 });
 
-export async function sendNotification(name: string, message: string) {
+export async function sendNotification(
+	name: string,
+	message: string,
+	title: string = 'Test Notification'
+) {
 	const subscription = websubscriptionSchema.parse(
 		JSON.parse(JSON.parse((await redisClient.get(name)) || 'null'))
 	);
@@ -48,7 +52,7 @@ export async function sendNotification(name: string, message: string) {
 		await webpush.sendNotification(
 			subscription,
 			JSON.stringify({
-				title: 'Test Notification',
+				title,
 				body: message,
 				icon: '/hiro-icon-512.svg',
 			})
